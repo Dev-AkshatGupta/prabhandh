@@ -76,7 +76,7 @@ export const getPumpUserData = createAsyncThunk(
   }
 );
 export const updateThePumpData = createAsyncThunk(
-  "auth/createThePumpData",
+  "auth/updateThePumpData",
   async (details) => {
     const userDoc = doc(db, "users", details.uid);
     // so details.data is basically a object needs to be updated with the help of this function
