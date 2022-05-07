@@ -1,6 +1,5 @@
 import React from "react";
-import Header from "./../../Components/Header/Header";
-import {Footer} from "./../../Components/footer/Footer"
+import {Footer,Header} from "Components"
 import "./LandingPage.css";
 const LandingPage = () => {
   return (

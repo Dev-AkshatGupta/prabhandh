@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-const Header = () => {
+export const Header = () => {
   return (
     <header class="text-gray-600 body-font">
   <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -26,4 +26,3 @@ const Header = () => {
   );
 };
 
-export default Header;
