@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./Reducers-Redux/authSlice";
-
-const store=configureStore({
+import pumpsReducer from "./Reducers-Redux/pumpSlice";
+ const store=configureStore({
     reducer:{
         auth:authReducer,
-    
+        pumps:pumpsReducer,    
     }
 });
 

@@ -15,3 +15,11 @@ html{
   box-sizing: border-box;
  font-family: 'Lato', sans-serif;
 }
+
+/* utility classes for the app */
+.bg-cta-secondary{
+    background-color: var(--CTA-SECONDARY);
+}
+.bg-primary{
+  background-color: var(--PRIMARY-COLOR);
+}
