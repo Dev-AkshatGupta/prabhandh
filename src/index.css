@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root{
-  primary-color:"",
-  secondau
+ /* Theme is with management energy power and  enthusiasm */
+--PRIMARY-COLOR:#b5dbdc;
+--PRIMARY-DARK-COLOR:#97cfce;
+--SECONDARY-COLOR:#619e99;
+--CTA-PRIMARY:#f39b58;
+--CTA-SECONDARY:#0e3439;
+}
+html{
+  box-sizing: border-box;
+ font-family: 'Lato', sans-serif;
 }
