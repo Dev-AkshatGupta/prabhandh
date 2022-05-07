@@ -1,8 +1,15 @@
 import React from "react";
+import {useState} from "react"
 import "./Header.css";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 export const Header = () => {
+
+const [login,setLogin] = useState(false)
+const {navigate} = useNavigate()
   return (
     <header className="text-gray-600 body-font">
+
+  
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <img
@@ -35,5 +42,6 @@ export const Header = () => {
         </button>
       </div>
     </header>
+
   );
 };
