@@ -2,7 +2,7 @@ import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 import {addDoc, collection,getDocs,updateDoc,doc} from "firebase/firestore";
 import { defaultEqualityCheck } from "reselect";
 import { notifyInfo,notifyError } from "Utilities/Notifications";
-import {db} from "fireBase";
+import {db} from "./../../fireBase";
 const cngPumpRef=collection(db,"CNG_PUMPS"); 
 export const cngPumpData=createAsyncThunk("pump/cngPumpData",async ()=>{
     const data=await getDocs(cngPumpRef);
@@ -21,6 +21,7 @@ const pumpSlice=createSlice({
             state.cngPump=action.payload;
             notifyInfo("Welcome user");
         })
+        
     },
 })
 
