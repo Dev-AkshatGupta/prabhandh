@@ -21,6 +21,7 @@ const pumpSlice=createSlice({
             state.cngPump=action.payload;
             notifyInfo("Welcome user");
         })
+        
     },
 })
 

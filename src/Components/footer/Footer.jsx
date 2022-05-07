@@ -8,8 +8,7 @@ export const Footer = () => {
               <img
                 src={require("./../../Assets/Logo/Logo.png")}
                 alt="Logo"
-                srcset=""
-        
+                srcSet=""
               />
               <span className="ml-3 text-xl">Prabhandh</span>
             </a>
