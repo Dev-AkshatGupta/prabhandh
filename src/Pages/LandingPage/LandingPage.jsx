@@ -24,16 +24,16 @@ const pumpCardDataHandler = (e)=>{
 
     return (
     <>
-     <section class="text-gray-600 body-font relative">
-        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
-          <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10  flex items-end justify-start relative">
+     <section className="text-gray-600 body-font relative">
+        <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+          <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10  flex items-end justify-start relative">
             <Map pump={selectedPump} setPump={setSelectedPump}/>
 
 
             {/* ------------ it is for future  --------- */}
-            {/* <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-              <div class="lg:w-1/2 px-6">
-                <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">
+            {/* <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+              <div className="lg:w-1/2 px-6">
+                <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
 
                   ADDRESS
                 </h2>
