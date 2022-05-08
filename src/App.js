@@ -26,8 +26,7 @@ dispatch(cngPumpData());
       <Route element={<PrivateRoute/>}>
         <Route element={<PumpOwner/>} path="/myDetails"/>
            <Route path="/myDetails/:profileAction" element={<PumpOwner />} />
-      </Route>    
-       
+      </Route>
       </Routes>
       <Footer/>
     </div>
