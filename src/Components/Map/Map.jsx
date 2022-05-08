@@ -21,12 +21,14 @@ export const Map = () => {
             defaultZoom={15}
             margin={[50, 50, 50, 50]}
         >
-            {cngPump.map((place, i) =>
+            {cngPump.map((pump, i) =>
                 <Marker
                     key={i}
-                    lat={place.latitude}
-                    lng={place.longitude}
-                    text={place.name}
+                    lat={pump.latitude}
+                    lng={pump.longitude}
+                    text={pump.name}
+                    pumpDetails={pump}
+
                 />)}
         </GoogleMapReact>
     )
