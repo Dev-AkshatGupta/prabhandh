@@ -1,7 +1,4 @@
-import React from "react";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
-import {notifySuccess,notifyError} from "Utilities/Notifications";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
