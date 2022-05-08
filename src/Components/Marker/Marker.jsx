@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
-import './Marker.css'
+import { useSelector } from 'react-redux'
 import mapPin from './../../Assets/map/marker.png'
+import './Marker.css'
+
 
 export const Marker = ({ pumpDetails }) => {
     const [pumpDetailStyle, setPumpDetailStyle] = useState({ display: 'none' })
+const updatePump =(e)=>{
+      setPump([pumpDetails])
+    }
 
     return (<>
         <div
@@ -14,6 +19,8 @@ export const Marker = ({ pumpDetails }) => {
             onMouseLeave={e => {
                 setPumpDetailStyle({ display: 'none' })
             }}
+            onClick={e=>updatePump(e)}
+
         >
             <img src={mapPin} />
         </div>
