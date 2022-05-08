@@ -7,14 +7,16 @@ import { useEffect } from "react";
 import { Header, Footer } from "Components"
 import { PumpOwner } from "./Pages/PumpOwner/PumpOwner";
 import PrivateRoute from "./Components/CustomRoute/PrivateRoute";
-import AuthenticationPage from "./Pages/AuthenticationPage/AuthenticationPage";
-
-const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(cngPumpData());
-    // dispatch(authStateChange());
-  }, [dispatch])
+import {RestrictedRoute} from "./Components/CustomRoute/RestrictedRoute";
+import AuthenticationPage  from "./Pages/AuthenticationPage/AuthenticationPage";
+import { authStateChange } from "./Redux/Reducers-Redux/authSlice";
+import ExperimentPage from "./ExperimentPage";
+import { getPumpUserData } from "./Redux/Reducers-Redux/authSlice";
+const  App = () =>{
+  const dispatch=useDispatch();
+  useEffect(()=>{
+dispatch(cngPumpData());
+  },[])
   return (
     <div className="App ">
       <Header />
@@ -28,7 +30,9 @@ const App = () => {
         </Route>
 
       </Routes>
-      <Footer />
+
+      <Footer/>
+      <ExperimentPage/>
     </div>
   );
 }

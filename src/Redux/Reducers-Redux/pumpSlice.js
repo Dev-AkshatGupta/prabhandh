@@ -6,13 +6,19 @@ import {db} from "./../../fireBase";
 const cngPumpRef=collection(db,"CNG_PUMPS"); 
 export const cngPumpData=createAsyncThunk("pump/cngPumpData",async ()=>{
     const data=await getDocs(cngPumpRef);
+   
     return data.docs.map(pump=>({...pump.data(),id:pump.id}));
 });
+
+
+
 // export const setSelectedpump = createAsyncThunk("map/setSelectedpump", async (pumpData) =>{
 //     return pumpData;
 // })
+
 const initialState={
     cngPump:[],
+
 };
 
 const pumpSlice=createSlice({

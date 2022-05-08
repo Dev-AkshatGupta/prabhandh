@@ -42,23 +42,22 @@ export const auth=getAuth(app);
 //   console.log({error})
 // } 
 // }
-
+   const userCollectionRef=collection(db,"users");
+// export
 
 export const createUserDocument = async (user, details) => {
   if (!user) return;
-
-  // const userRef = collection(db,`users/${user.uid}`);
-
-  // const snapshot = await userRef.get();
-
-  if (true) {
-     
+ 
+if(doc(db,"users",user.uid)){
  try{
-   await setDoc(doc(db,"users",user.uid),details)} 
+  await setDoc(doc(db,"users",user.uid),details)} 
 catch(error){
   console.log({error})
 } 
   }
 };
-
+// export const getUserDocument=async(user,details)=>{
+//    const userDetails=await doc(db,"users",user.uid);
+//    return userDetails;
+// }
 export default app;
