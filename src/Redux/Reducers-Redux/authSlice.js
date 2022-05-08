@@ -16,8 +16,12 @@ import {auth} from "./../../fireBase";
 export const logIn=createAsyncThunk("auth/logIn", async  function (details){
         const email=details.email , password=details.password;
     try {      
-        const {data}=await signInWithEmailAndPassword(auth,email,password);
-        return data;
+        const {user}=await signInWithEmailAndPassword(auth,email,password);
+         localStorage.setItem(
+      "user",
+      JSON.stringify(user ? user : null)
+    );
+        return user;
     } catch (error) {
         console.log(error.response);
     }
@@ -27,7 +31,10 @@ export const signUp=createAsyncThunk("auth/signUp",async function (details){
     try {
         const {user}=await  createUserWithEmailAndPassword(auth,email,password);
         console.log(user);
-        
+           localStorage.setItem(
+      "user",
+      JSON.stringify(user ? user : null)
+    );
         //   await createUserDocument(user,{address:"",email:user.email,latitude:"",longitude:"",} ); 
         //  createUser(user, details); 
 return user;
@@ -38,7 +45,9 @@ return user;
   
 
 const initialState={
-    currentUser:{},
+    currentUser:localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user"))
+      : null,
     loading:false
     }
 

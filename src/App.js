@@ -24,8 +24,8 @@ dispatch(cngPumpData());
        <Route element={<LandingPage/>} path="/"></Route> 
        <Route element={<AuthenticationPage/>} path="/authenticate"/>
       <Route element={<PrivateRoute/>}>
-        <Route element={<PumpOwner/>} path="/myDetails"/>
-           <Route path="/myDetails/:profileAction" element={<PumpOwner />} />
+        <Route element={<PumpOwner/>} path="/:userId"/>
+           <Route path="/:userId/:profileAction" element={<PumpOwner />}/>
       </Route>
       </Routes>
       <Footer/>
