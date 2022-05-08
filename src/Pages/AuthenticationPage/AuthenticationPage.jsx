@@ -19,7 +19,7 @@ const AuthenticationPage = () => {
             your business.
           </p>
         </div>
-        {false && (
+        {true && (
           <AuthenticationForm
             formName={"Sign-Up"}
             details={details}
@@ -37,7 +37,7 @@ const AuthenticationPage = () => {
             </button>
           </AuthenticationForm>
         )}
-        {true && (
+        {false && (
           <AuthenticationForm
             formName={"Log-In"}
             details={details}

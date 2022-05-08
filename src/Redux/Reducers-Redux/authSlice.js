@@ -16,6 +16,7 @@ export const logIn=createAsyncThunk("auth/logIn", async  function (details){
     try {
         // console.log({details});
         const {data}=await signInWithEmailAndPassword(auth,email,password);
+        onAuthStateChanged(auth,(currentUser)=>console.log(currentUser));
         console.log(data);
         return data;
     } catch (error) {
@@ -26,8 +27,7 @@ export const signUp=createAsyncThunk("auth/signUp",async function (details){
       const email=details.email , password=details.password;
     try {
         const data=await  createUserWithEmailAndPassword(auth,email,password);
-        console.log(data);
-        // return data;
+        
     } catch (error) {
         console.log(error.response);
     }
@@ -46,10 +46,10 @@ const authSlice=createSlice({
     extraReducers(builder){
         builder
    .addCase(logIn.fulfilled,(state,action)=>{
-
+   onAuthStateChanged(auth,(currentUser)=>state.currentUser=currentUser);
    })
    .addCase(signUp.fulfilled,(state,action)=>{
-
+    onAuthStateChanged(auth,(currentUser)=>state.currentUser=currentUser);
    })
     },
 })
