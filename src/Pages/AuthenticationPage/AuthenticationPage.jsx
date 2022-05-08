@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AuthenticationForm } from "../../Components/Authentication/AuthenticationForm";
-import {signUp,logIn} from "./../../Redux/Reducers-Redux/authSlice";
+import { signUp, logIn } from "./../../Redux/Reducers-Redux/authSlice";
 const AuthenticationPage = () => {
-  
   const dispatch = useDispatch();
- const [details, setDetails] = useState({email:"",password:"", showPassword: false,  });
+  const [details, setDetails] = useState({
+    email: "",
+    password: "",
+    showPassword: false,
+  });
   return (
     <section className="text-gray-600 body-font">
       <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
@@ -20,46 +23,44 @@ const AuthenticationPage = () => {
           </p>
         </div>
         <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-        
-        {true && (
-          <AuthenticationForm
-            formName={"Sign-Up"}
-            details={details}
-            setDetails={setDetails}
-          >
-            {" "}
-            <button
-              className="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(signUp(details));
-              }}
+          {true && (
+            <AuthenticationForm
+              formName={"Sign-Up"}
+              details={details}
+              setDetails={setDetails}
             >
-              Sign-Up
-            </button>
-          </AuthenticationForm>
-        )}
-        {false && (
-          <AuthenticationForm
-            formName={"Log-In"}
-            details={details}
-            setDetails={setDetails}
-          >
-           
-            <button
-              className="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(logIn(details));
-              }}
+              
+              <button
+                className="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(signUp(details));
+                }}
+              >
+                Sign-Up
+              </button>
+            </AuthenticationForm>
+          )}
+          {false && (
+            <AuthenticationForm
+              formName={"Log-In"}
+              details={details}
+              setDetails={setDetails}
             >
-              Login
-            </button>
-          </AuthenticationForm>
-        )}
-       <p className="text-xs text-gray-500 mt-3 text-center">
-        Already have a account?
-      </p>
+              <button
+                className="text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg"
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(logIn(details));
+                }}
+              >
+                Login
+              </button>
+            </AuthenticationForm>
+          )}
+          <p className="text-xs text-gray-500 mt-3 text-center">
+            Already have a account?
+          </p>
         </div>
       </div>
     </section>

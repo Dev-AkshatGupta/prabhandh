@@ -36,8 +36,7 @@ const AuthenticationForm = ({formName,children,details,setDetails}) => {
       <label htmlFor="showPassword" className="text-center">
         <input
           type="checkbox"
-          name=""
-          id=""
+          name="show_password"
           className="mr-1 mb-3"
           placeholder="showPassword"
           onChange={() =>
