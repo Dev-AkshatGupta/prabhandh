@@ -20,11 +20,13 @@ dispatch(cngPumpData());
       <Header />
       <Aside />
       <Routes>
-        <Route element={<LandingPage/>} path="/"></Route>
-        <Route element={<PumpOwner/>} path="/myDetails">
+        {/* <Route element={<LandingPage/>} path="/"></Route> */}
+        
+      <Route element={<PumpOwner/>} path="/myDetails">
           <Route path=":profileAction" element={<PumpOwner />} />
         </Route>
-      <Route element={<AuthenticationPage/>} path="/"></Route>
+      <Route element={<LandingPage/>} path="/">
+      </Route>
       </Routes>
       
      
