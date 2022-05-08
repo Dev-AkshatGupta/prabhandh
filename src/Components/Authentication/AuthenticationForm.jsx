@@ -1,7 +1,7 @@
 import React from "react";
 
-const AuthenticationForm = ({formName,children,details,setDetails}) => {
- 
+const AuthenticationForm = ({ formName, children, details, setDetails }) => {
+
   return (
     <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
       <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
@@ -50,13 +50,17 @@ const AuthenticationForm = ({formName,children,details,setDetails}) => {
       {children}
 
       <p className="text-xs text-gray-500 mt-3 text-center">
-        Welcome to Prabhandh best in className management and tracker app .
+        Welcome to Prabhandh best in class management and tracker app .
       </p>
       <p className="text-xs text-gray-500 mt-3 text-center">
-        Already have a account? <button className="underline text-xs text-gray-500 mt-3 text-center"></button>
+        {details.isSignupForm ?
+
+          (<button onClick={() => setDetails({ ...details, isSignupForm: !details.isSignupForm })} className="underline">Already have an account</button>)
+
+          : (<button onClick={() => setDetails({ ...details, isSignupForm: !details.isSignupForm })} className="underline">Don't have an account</button>)}
       </p>
     </div>
   );
 };
 
-export{ AuthenticationForm};
+export { AuthenticationForm };
