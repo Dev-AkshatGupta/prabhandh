@@ -36,8 +36,7 @@ const AuthenticationForm = ({formName,children,details,setDetails}) => {
       <label htmlFor="showPassword" className="text-center">
         <input
           type="checkbox"
-          name=""
-          id=""
+          name="show_password"
           className="mr-1 mb-3"
           placeholder="showPassword"
           onChange={() =>
@@ -54,7 +53,7 @@ const AuthenticationForm = ({formName,children,details,setDetails}) => {
         Welcome to Prabhandh best in className management and tracker app .
       </p>
       <p className="text-xs text-gray-500 mt-3 text-center">
-        Already have a account?
+        Already have a account? <button className="underline text-xs text-gray-500 mt-3 text-center"></button>
       </p>
     </div>
   );

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Marker } from '../Marker/Marker'
 
 export const Map = ({pump,setPump}) => {
+
     const [coordinates, setCoordinates] = useState({ lat: 25.5941, lng: 85.1376 })
     const { cngPump } = useSelector(state => state.pumps)
 
@@ -28,6 +29,7 @@ export const Map = ({pump,setPump}) => {
                     lng={pump.longitude}
                     text={pump.name}
                     pumpDetails={pump}
+
                     setPump={setPump}
                 />)}
         </GoogleMapReact>

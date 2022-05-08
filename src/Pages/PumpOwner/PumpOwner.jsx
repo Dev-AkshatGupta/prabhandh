@@ -1,5 +1,4 @@
 import { NavLink,useParams } from "react-router-dom"
-
 import "./pump.css"
 export const PumpOwner = () =>{
     const param = useParams();
@@ -15,6 +14,7 @@ export const PumpOwner = () =>{
                     <NavLink className="links" to="/myDetails/settings">Settings</NavLink>
                 
             </div>
+            <p></p>
             <div className="right-pane">
                {profileAction === "profile" &&(
                    <h2>My Profile</h2>

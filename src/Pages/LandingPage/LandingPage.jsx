@@ -1,17 +1,20 @@
-import {useState} from "react";
+import React, { useState } from "react";
+import { Map, Marker } from "Components";
 import "./LandingPage.css";
-import {Map} from "../../Components/Map/Map"
 import { useSelector } from 'react-redux'
+
 const LandingPage = () => {
-const { cngPump } = useSelector(state => state.pumps)
-console.log(cngPump)
-const [selectedPump,setSelectedPump] = useState([{address: "Moti Jheel Bharatpur Kumher Road RAJ, Kota, Rajasthan 321001",
-id: "48bMkVmZwyokVIh52QqN",
-latitude: "27.231889395653546",
-longitude: "77.47069489506531",
-name: "HP Petrol Pump",
-occupied_machines: "4",
-vacant_machines: "0"}])
+   const { cngPump } = useSelector(state => state.pumps)
+ 
+  const [selectedPump, setSelectedPump] = useState([{
+    address: "Moti Jheel Bharatpur Kumher Road RAJ, Kota, Rajasthan 321001",
+    id: "48bMkVmZwyokVIh52QqN",
+    latitude: "27.231889395653546",
+    longitude: "77.47069489506531",
+    name: "HP Petrol Pump",
+    occupied_machines: "4",
+    vacant_machines: "0"
+  }])
 
 const pumpCardDataHandler = (e)=>{
  const currentId = e.target.value;
@@ -19,12 +22,14 @@ const pumpCardDataHandler = (e)=>{
  setSelectedPump(currentData)
 }
 
-  return (
+    return (
     <>
      <section class="text-gray-600 body-font relative">
         <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
           <div class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10  flex items-end justify-start relative">
             <Map pump={selectedPump} setPump={setSelectedPump}/>
+
+
             {/* ------------ it is for future  --------- */}
             {/* <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
               <div class="lg:w-1/2 px-6">
@@ -103,5 +108,3 @@ const pumpCardDataHandler = (e)=>{
 };
 
 export default LandingPage;
-
-
