@@ -19,6 +19,7 @@ const AuthenticationPage = () => {
             your business.
           </p>
         </div>
+        <div className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
         {false && (
           <AuthenticationForm
             formName={"Sign-Up"}
@@ -51,10 +52,14 @@ const AuthenticationPage = () => {
                 dispatch(logIn(details));
               }}
             >
-              Sign-Up
+              Login
             </button>
           </AuthenticationForm>
         )}
+       <p className="text-xs text-gray-500 mt-3 text-center">
+        Already have a account?
+      </p>
+        </div>
       </div>
     </section>
   );
