@@ -1,16 +1,14 @@
-import React from "react";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
-import {notifySuccess,notifyError} from "Utilities/Notifications";
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-  GoogleAuthProvider,
-  signInWithPopup,
-  
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup,
+
 } from "firebase/auth";
+
 import {getFirestore,doc,collection,updateDoc,getDocs} from "@firebase/firestore";
 import {db} from "./../../fireBase";
 import {createUserDocument} from "./../../fireBase";
@@ -24,15 +22,26 @@ export const logIn=createAsyncThunk("auth/logIn", async  function (details){
       "user",
       JSON.stringify(user ? user : null)
     );
+
+
+
+export const logIn = createAsyncThunk("auth/logIn", async function (details) {
+    const email = details.email, password = details.password;
+    try {
+        const { user } = await signInWithEmailAndPassword(auth, email, password);
+        localStorage.setItem(
+            "user",
+            JSON.stringify(user ? user : null)
+        );
         return user;
     } catch (error) {
         console.log(error.response);
     }
-    });
-export const signUp=createAsyncThunk("auth/signUp",async function (details){
-      const email=details.email , password=details.password;
+});
+export const signUp = createAsyncThunk("auth/signUp", async function (details) {
+    const email = details.email, password = details.password;
     try {
-        const {user}=await  createUserWithEmailAndPassword(auth,email,password);
+        const { user } = await createUserWithEmailAndPassword(auth, email, password);
         console.log(user);
            localStorage.setItem(
       "user",
@@ -67,9 +76,8 @@ const initialState={
     pumpUser:{}
     }
 
-
-const authSlice=createSlice({
-    name:"auth",
+const authSlice = createSlice({
+    name: "auth",
     initialState,
     reducers:{},
     extraReducers(builder){
@@ -85,5 +93,5 @@ const authSlice=createSlice({
 })
     },
 })
-export const {authStateChange}=authSlice.actions
+export const { authStateChange } = authSlice.actions
 export default authSlice.reducer;
