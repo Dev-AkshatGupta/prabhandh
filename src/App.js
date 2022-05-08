@@ -10,13 +10,18 @@ import PrivateRoute from "./Components/CustomRoute/PrivateRoute";
 import {RestrictedRoute} from "./Components/CustomRoute/RestrictedRoute";
 import AuthenticationPage  from "./Pages/AuthenticationPage/AuthenticationPage";
 import { authStateChange } from "./Redux/Reducers-Redux/authSlice";
-
+import ExperimentPage from "./ExperimentPage";
+import { getPumpUserData } from "./Redux/Reducers-Redux/authSlice";
 const  App = () =>{
   const dispatch=useDispatch();
   useEffect(()=>{
 dispatch(cngPumpData());
 // dispatch(authStateChange());
   },[])
+  // experimentation for getting the data of the single database
+  useEffect(()=>{
+dispatch(getPumpUserData({ uid: "z55IZ5hlE7jt8pU06tag" }));
+    },[])
   return (
     <div className="App ">
       <Header />
@@ -29,6 +34,7 @@ dispatch(cngPumpData());
       </Route>
       </Routes>
       <Footer/>
+      <ExperimentPage/>
     </div>
   );
 }
