@@ -42,14 +42,14 @@ export const signUp = createAsyncThunk("auth/signUp", async function (details) {
     console.log(user);
     localStorage.setItem("user", JSON.stringify(user ? user : null));
     createUserDocument(user, {
-      address: "Moti Jheel Bharatpur Kumher Road RAJ, Kota, Rajasthan 321001",
+      address: "",
       email: user.email,
-      latitude: "27.23175584017553",
-      longitude: " 77.4707592680813",
-      name: "GAIL Gas CNG Station",
+      latitude: "",
+      longitude: "",
+      name: "",
       id: user.uid,
-      vacant_machines: 2,
-      occupied_machines: 4,
+      vacant_machines: "",
+      occupied_machines: "",
     });
     return user;
   } catch (error) {
