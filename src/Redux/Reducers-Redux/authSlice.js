@@ -42,10 +42,14 @@ export const signUp = createAsyncThunk("auth/signUp", async function (details) {
     console.log(user);
     localStorage.setItem("user", JSON.stringify(user ? user : null));
     createUserDocument(user, {
-      address: "",
+      address: "Moti Jheel Bharatpur Kumher Road RAJ, Kota, Rajasthan 321001",
       email: user.email,
-      latitude: "",
-      longitude: "",
+      latitude: "27.23175584017553",
+      longitude: " 77.4707592680813",
+      name: "GAIL Gas CNG Station",
+      id: user.uid,
+      vacant_machines: 2,
+      occupied_machines: 4,
     });
     return user;
   } catch (error) {
@@ -70,8 +74,8 @@ export const updateThePumpData = createAsyncThunk(
   async (details) => {
     const userDoc = doc(db, "users", details.uid);
     // so details.data is basically a object needs to be updated with the help of this function
-    const newFields = details.data;
-    await updateDoc(userDoc, newFields);
+    // const newFields = details.data;
+    await updateDoc(userDoc, { address: details.address });
   }
 );
 

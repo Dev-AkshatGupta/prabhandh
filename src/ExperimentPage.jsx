@@ -19,9 +19,7 @@ const ExperimentPage = () => {
           dispatch(
             updateThePumpData({
               uid: "z55IZ5hlE7jt8pU06tag",
-              data: {
-                address: "bharatpur",
-              },
+              address:"Ranthambore"
             })
           )
         }
