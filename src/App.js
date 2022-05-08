@@ -28,7 +28,6 @@ dispatch(cngPumpData());
           <Route element={<PumpOwner />} path="/myDetails" />
           <Route path="/myDetails/:profileAction" element={<PumpOwner />} />
         </Route>
-
       </Routes>
 
       <Footer/>
