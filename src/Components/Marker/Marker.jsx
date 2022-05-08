@@ -4,7 +4,9 @@ import mapPin from './../../Assets/map/marker.png'
 import './Marker.css'
 
 
-export const Marker = ({ pumpDetails,setPump }) => {
+
+export const Marker = ({ pumpDetails, setPump }) => {
+
     const [pumpDetailStyle, setPumpDetailStyle] = useState({ display: 'none' })
 const updatePump =(e)=>{
       setPump([pumpDetails])
