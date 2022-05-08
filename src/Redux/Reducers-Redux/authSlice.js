@@ -9,15 +9,16 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  
 } from "firebase/auth";
+import {createUserDocument} from "./../../fireBase";
 import {auth} from "./../../fireBase";
 export const logIn=createAsyncThunk("auth/logIn", async  function (details){
         const email=details.email , password=details.password;
     try {
-        // console.log({details});
+      
         const {data}=await signInWithEmailAndPassword(auth,email,password);
         onAuthStateChanged(auth,(currentUser)=>console.log(currentUser));
-        console.log(data);
         return data;
     } catch (error) {
         console.log(error.response);
@@ -26,8 +27,12 @@ export const logIn=createAsyncThunk("auth/logIn", async  function (details){
 export const signUp=createAsyncThunk("auth/signUp",async function (details){
       const email=details.email , password=details.password;
     try {
-        const data=await  createUserWithEmailAndPassword(auth,email,password);
-        
+        const {user}=await  createUserWithEmailAndPassword(auth,email,password);
+        console.log(user);
+         onAuthStateChanged(auth,(currentUser)=>console.log(currentUser));
+          await createUserDocument(user,{address:"",email:user.email,latitude:"",longitude:"",} ); 
+        //  createUser(user, details); 
+return user;
     } catch (error) {
         console.log(error.response);
     }
@@ -43,14 +48,21 @@ const initialState={
 const authSlice=createSlice({
     name:"auth",
     initialState,
+    reducers:{
+           authStateChange(state){
+                onAuthStateChanged(auth,currentUser=>{state.currentUser=currentUser});
+        },
+    },
     extraReducers(builder){
         builder
    .addCase(logIn.fulfilled,(state,action)=>{
-   onAuthStateChanged(auth,(currentUser)=>state.currentUser=currentUser);
+       state.currentUser=action.payload;
+//    onAuthStateChanged(auth,(currentUser)=>state.currentUser=currentUser);
    })
    .addCase(signUp.fulfilled,(state,action)=>{
-    onAuthStateChanged(auth,(currentUser)=>state.currentUser=currentUser);
-   })
+       state.currentUser=action.payload;
+})
     },
 })
+export const {authStateChange}=authSlice.actions
 export default authSlice.reducer;
