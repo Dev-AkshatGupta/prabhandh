@@ -12,6 +12,9 @@ import AuthenticationPage  from "./Pages/AuthenticationPage/AuthenticationPage";
 import { authStateChange } from "./Redux/Reducers-Redux/authSlice";
 import ExperimentPage from "./ExperimentPage";
 import { getPumpUserData } from "./Redux/Reducers-Redux/authSlice";
+import UpdateMachine from "./Pages/UpdateMachine/UpdateMachine";
+import UpdatePump from "./Pages/UpdatePump/UpdatePump";
+import Settings from "./Pages/Settings/Settings";
 const  App = () =>{
   const dispatch=useDispatch();
   useEffect(()=>{
@@ -25,8 +28,13 @@ dispatch(cngPumpData());
         <Route element={<AuthenticationPage />} path="/authentication" />
         
         <Route element={<PrivateRoute />}>
-          <Route element={<PumpOwner />} path="/myDetails" />
-          <Route path="/myDetails/:profileAction" element={<PumpOwner />} />
+
+          {/* <Route element={<PumpOwner />} path="/myDetails" />
+          <Route path="/myDetails/:profileAction" element={<PumpOwner />} /> */}
+
+          <Route path="/updateMachine" element={<UpdateMachine />} />
+          <Route path="/updatePump" element={<UpdatePump />} />
+          <Route path="/settings" element={<Settings />} />
         </Route>
       </Routes>
 

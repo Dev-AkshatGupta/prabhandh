@@ -29,7 +29,8 @@ export const logIn = createAsyncThunk("auth/logIn", async function (details) {
   } catch (error) {
     console.log(error.response);
   }
-});
+}); 
+
 export const signUp = createAsyncThunk("auth/signUp", async function (details) {
   const email = details.email,
     password = details.password;
@@ -52,10 +53,15 @@ export const signUp = createAsyncThunk("auth/signUp", async function (details) {
     console.log(error.response);
   }
 });
+
+export const logout = createAsyncThunk("auth/logout", async function(){
+  localStorage.setItem("user", null);
+  return null;
+})
+
 export const getPumpUserData = createAsyncThunk(
   "auth/getPumpUserData",
   async (user) => {
-    console.log("triggered");
     const userRef = collection(db, "users");
     const data = await getDocs(userRef);
     const userDataObj = data.docs
@@ -93,6 +99,9 @@ const authSlice = createSlice({
         state.currentUser = action.payload;
       })
       .addCase(signUp.fulfilled, (state, action) => {
+        state.currentUser = action.payload;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
         state.currentUser = action.payload;
       })
       .addCase(getPumpUserData.fulfilled, (state, action) => {

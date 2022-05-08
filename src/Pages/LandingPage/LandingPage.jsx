@@ -81,15 +81,15 @@ const pumpCardDataHandler = (e)=>{
             </div>
             <div className="relative mb-4  h-100  bg-slate-200 px-4 py-4">
               {
-                selectedPump.map(({ name, address, occupied_machines, vacant_machines }) => {
+                selectedPump.map(({ name, address, occupied_machines, vacant_machines }, i) => {
                   return (
-                    <>
+                    <div key={i}>
 
                       <p className="text-xl">{name}</p>
                       <p className="pt-2  text-lg">{address}</p>
                       <p className="text-lg pt-2">Vacant Machines - <span className="text-green-600 text-2xl">{vacant_machines}</span></p>
                       <p className=" pt-2 text-lg">Occupied Machines- <span className="text-red-600 text-2xl">{occupied_machines}</span></p>
-                    </>
+                    </div>
                   )
                 })
               }
