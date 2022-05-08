@@ -2,10 +2,12 @@ import React from "react";
 import {useState} from "react"
 import "./Header.css";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 export const Header = () => {
 
 const [login,setLogin] = useState(false)
-const {navigate} = useNavigate()
+const {navigate} = useNavigate();
+const {currentUser}=useSelector(state=>state.auth);
   return (
     <header className="text-gray-600 body-font">
 
@@ -26,8 +28,8 @@ const {navigate} = useNavigate()
           <a className="mr-5 hover:text-gray-900">Third Link</a>
           <a className="mr-5 hover:text-gray-900">Fourth Link</a>
         </nav>
-        <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 bg-green-500">
-          Button
+        <Link className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0 bg-green-500" to="/authenticatePage">
+      Pump Login
           <svg
             fill="none"
             stroke="currentColor"
@@ -39,7 +41,7 @@ const {navigate} = useNavigate()
           >
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
-        </button>
+        </Link>
       </div>
     </header>
 

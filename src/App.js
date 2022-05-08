@@ -6,7 +6,8 @@ import {cngPumpData} from "./Redux/Reducers-Redux/pumpSlice";
 import { useEffect } from "react";
 import {Header,Footer} from "Components"
 import { PumpOwner } from "./Pages/PumpOwner/PumpOwner";
-
+import PrivateRoute from "./Components/CustomRoute/PrivateRoute";
+import {RestrictedRoute} from "./Components/CustomRoute/RestrictedRoute";
 import AuthenticationPage  from "./Pages/AuthenticationPage/AuthenticationPage";
 import { authStateChange } from "./Redux/Reducers-Redux/authSlice";
 
@@ -18,23 +19,17 @@ dispatch(cngPumpData());
   },[])
   return (
     <div className="App ">
-
       <Header />
-
       <Routes>
        <Route element={<LandingPage/>} path="/"></Route> 
-        
-      <Route element={<PumpOwner/>} path="/myDetails">
-          <Route path=":profileAction" element={<PumpOwner />} />
-        </Route>
-      <Route element={<AuthenticationPage/>} path="/"></Route>
+       <Route element={<AuthenticationPage/>} path="/authenticate"/>
+      <Route element={<PrivateRoute/>}>
+        <Route element={<PumpOwner/>} path="/myDetails"/>
+           <Route path="/myDetails/:profileAction" element={<PumpOwner />} />
+      </Route>    
        
-      <Route element={<LandingPage/>} path="/">
-      </Route>
       </Routes>
-      
-     {/* <AuthenticationPage/> */}
-<Footer/>
+      <Footer/>
     </div>
   );
 }
