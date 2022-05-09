@@ -7,7 +7,8 @@ export const Map = ({pump,setPump}) => {
 
     const [coordinates, setCoordinates] = useState({ lat: 25.5941, lng: 85.1376 })
     const { cngPump } = useSelector(state => state.pumps)
-
+    
+    //get current location
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords: { latitude, longitude } }) => {
             setCoordinates({ lat: latitude, lng: longitude })
