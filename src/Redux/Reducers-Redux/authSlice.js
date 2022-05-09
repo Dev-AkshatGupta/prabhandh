@@ -29,7 +29,7 @@ export const logIn = createAsyncThunk("auth/logIn", async function (details) {
   } catch (error) {
     console.log(error.response);
   }
-});
+}); 
 
 export const signUp = createAsyncThunk("auth/signUp", async function (details) {
   const email = details.email,
@@ -62,7 +62,6 @@ export const logout = createAsyncThunk("auth/logout", async function(){
 export const getPumpUserData = createAsyncThunk(
   "auth/getPumpUserData",
   async (user) => {
-    console.log("triggered");
     const userRef = collection(db, "users");
     const data = await getDocs(userRef);
     const userDataObj = data.docs
