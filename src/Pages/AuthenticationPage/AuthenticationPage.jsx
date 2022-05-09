@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { AuthenticationForm } from "../../Components/Authentication/AuthenticationForm";
 import { signUp, logIn } from "./../../Redux/Reducers-Redux/authSlice";
 const AuthenticationPage = () => {
-  const dispatch = useDispatch();
+  
   const [details, setDetails] = useState({
     email: "",
     password: "",
     showPassword: false,
-    isSignupForm: true
+    isSignupForm: false
   });
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const loginHandler = (e) => {
     e.preventDefault();
     dispatch(logIn(details));
+    navigate("/")
   }
 
   const signupHandler = (e) => {
     e.preventDefault();
     dispatch(signUp(details));
+    navigate("/")
   }
 
   return (
