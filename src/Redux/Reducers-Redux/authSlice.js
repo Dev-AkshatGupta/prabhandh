@@ -81,7 +81,18 @@ export const updateThePumpData = createAsyncThunk(
     const userDoc = doc(db, "users", details.uid);
     // so details.data is basically a object needs to be updated with the help of this function
     // const newFields = details.data;
-    await updateDoc(userDoc, { address: details.address });
+    await updateDoc(userDoc, { address: details.address , name:details.name,latitude:details.latitude,longitude:details.longitude,vacant_machines:details.vacant_machines,occupied_machines:details.occupied_machines});
+  }
+);
+export const updateMachineStatus = createAsyncThunk(
+  "auth/updateMachineStatus",
+  async (details) => {
+    const userDoc = doc(db, "users", details.uid);
+    // so details.data is basically a object needs to be updated with the help of this function
+    // const newFields = details.data;
+    await updateDoc(userDoc, {vacant_machines: details.vacant_machines,
+      occupied_machines: details.occupied_machines,
+    });
   }
 );
 
