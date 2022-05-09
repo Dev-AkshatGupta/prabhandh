@@ -65,9 +65,8 @@ solving some of those problems.
 
 ## [Prabhandh link](https://prabhandh.vercel.app/)
 
-# Quick Overview 
 
-Video will go here
+
 
 ## Contributers
 
