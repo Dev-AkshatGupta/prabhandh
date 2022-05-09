@@ -19,13 +19,13 @@ const App = () => {
     <div className="App ">
       <Header />
       <Routes>
- developer
-       <Route element={<LandingPage/>} path="/"></Route> 
-       <Route element={<AuthenticationPage/>} path="/authenticate"/>
-      <Route element={<PrivateRoute/>}>
-        <Route element={<PumpOwner/>} path="/userDetails"/>
-           <Route path="/userDetails/:profileAction" element={<PumpOwner />}/>
-      </Route>
+        <Route element={<LandingPage />} path="/"></Route>
+
+        <Route element={<AuthenticationPage />} path="/authentication" />
+        <Route element={<PrivateRoute />}>
+          <Route element={<PumpOwner />} path="/userDetails" />
+          <Route path="/userDetails/:profileAction" element={<PumpOwner />} />
+        </Route>
 
       </Routes>
       <Footer />
