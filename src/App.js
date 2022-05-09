@@ -20,8 +20,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route element={<LandingPage />} path="/"></Route>
-
         <Route element={<AuthenticationPage />} path="/authentication" />
+        
         <Route element={<PrivateRoute />}>
           <Route element={<PumpOwner />} path="/userDetails" />
           <Route path="/userDetails/:profileAction" element={<PumpOwner />} />
