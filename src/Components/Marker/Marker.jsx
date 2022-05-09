@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import mapPin from './../../Assets/map/marker.png'
-import './Marker.css'
+import React, { useState } from 'react';
+import mapPin from './../../Assets/map/marker.png';
+import './Marker.css';
 
 
 
@@ -24,7 +23,7 @@ const updatePump =(e)=>{
             onClick={e=>updatePump(e)}
 
         >
-            <img src={mapPin} />
+            <img src={mapPin}  alt="map-pin"/>
         </div>
 
         <div

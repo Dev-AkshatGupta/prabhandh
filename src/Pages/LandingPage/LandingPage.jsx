@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Map, Marker } from "Components";
-import "./LandingPage.css";
+import { Map } from "Components";
 import { useSelector } from 'react-redux'
 
 const LandingPage = () => {
@@ -30,33 +29,6 @@ const pumpCardDataHandler = (e)=>{
             <Map pump={selectedPump} setPump={setSelectedPump}/>
 
 
-            {/* ------------ it is for future  --------- */}
-            {/* <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
-              <div className="lg:w-1/2 px-6">
-                <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-
-                  ADDRESS
-                </h2>
-                <p className="mt-1">
-                  Photo booth tattooed prism, portland taiyaki hoodie neutra
-                  typewriter
-                </p>
-              </div>
-              <div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-                <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
-                  EMAIL
-
-                </h2>
-                <a className="text-green-500 leading-relaxed">
-                  example@email.com
-                </a>
-                <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
-                  PHONE
-                </h2>
-                <p className="leading-relaxed">123-456-7890</p>
-              </div>
-            </div> */}
-            {/* ------------ it is for future-end  --------- */}
           </div>
           <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
             <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">

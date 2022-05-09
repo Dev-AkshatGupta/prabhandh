@@ -1,6 +1,5 @@
 import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
-import {addDoc, collection,getDocs,updateDoc,doc} from "firebase/firestore";
-import { defaultEqualityCheck } from "reselect";
+import { collection,getDocs} from "firebase/firestore";
 import { notifyInfo,notifyError } from "Utilities/Notifications";
 import {db} from "./../../fireBase";
 
@@ -14,9 +13,6 @@ export const cngPumpData=createAsyncThunk("pump/cngPumpData",async ()=>{
 
 
 
-// export const setSelectedpump = createAsyncThunk("map/setSelectedpump", async (pumpData) =>{
-//     return pumpData;
-// })
 
 const initialState={
     cngPump:[],
@@ -29,7 +25,6 @@ const pumpSlice=createSlice({
     extraReducers(builder){
         builder
         .addCase(cngPumpData.fulfilled,(state,action)=>{
-            console.log(action.payload);
             state.cngPump=action.payload;
             notifyInfo("Welcome user");
         })

@@ -1,6 +1,5 @@
 import React from "react";
-import "./Header.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Redux/Reducers-Redux/authSlice";
 export const Header = () => {

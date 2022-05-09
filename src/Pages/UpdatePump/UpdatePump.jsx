@@ -1,4 +1,3 @@
-import GoogleMapReact from "google-map-react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -24,7 +23,7 @@ const UpdatePump = () => {
       longitude: coordinates.lng,
       latitude: coordinates.lat,
     });
-  }, [uid]);
+  }, [uid, coordinates.lng, coordinates.lat]);
 
   return (
     <section className="text-gray-600 body-font relative">
@@ -41,7 +40,10 @@ const UpdatePump = () => {
           <div className="flex flex-wrap -m-2">
             <div className="p-2 w-1/2">
               <div className="relative">
-                <label for="name" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="name"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Name
                 </label>
                 <input
@@ -57,7 +59,10 @@ const UpdatePump = () => {
             </div>
             <div className="p-2 w-1/2">
               <div className="relative">
-                <label for="email" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="email"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Address
                 </label>
                 <input
@@ -73,7 +78,10 @@ const UpdatePump = () => {
             </div>
             <div className="p-2 w-1/2">
               <div className="relative">
-                <label for="vacant" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="vacant"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Vacant
                 </label>
                 <input
@@ -92,7 +100,7 @@ const UpdatePump = () => {
             <div className="p-2 w-1/2">
               <div className="relative">
                 <label
-                  for="occupied"
+                  htmlFor="occupied"
                   className="leading-7 text-sm text-gray-600"
                 >
                   Occupied
