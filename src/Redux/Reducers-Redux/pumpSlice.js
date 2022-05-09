@@ -3,7 +3,9 @@ import {addDoc, collection,getDocs,updateDoc,doc} from "firebase/firestore";
 import { defaultEqualityCheck } from "reselect";
 import { notifyInfo,notifyError } from "Utilities/Notifications";
 import {db} from "./../../fireBase";
-const cngPumpRef=collection(db,"CNG_PUMPS"); 
+
+const cngPumpRef=collection(db,"users"); 
+
 export const cngPumpData=createAsyncThunk("pump/cngPumpData",async ()=>{
     const data=await getDocs(cngPumpRef);
    
