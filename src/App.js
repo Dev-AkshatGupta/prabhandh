@@ -23,8 +23,8 @@ const App = () => {
         <Route element={<AuthenticationPage />} path="/authentication" />
         
         <Route element={<PrivateRoute />}>
-          <Route element={<PumpOwner />} path="/userDetails" />
-          <Route path="/userDetails/:profileAction" element={<PumpOwner />} />
+          <Route element={<PumpOwner />} path="/myDetails" />
+          <Route path="/myDetails/:profileAction" element={<PumpOwner />} />
         </Route>
 
       </Routes>
